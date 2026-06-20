@@ -1,6 +1,11 @@
 import type { EnquiryFormData } from "./types";
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:5000";
+// In local development, default to the standalone Express server.
+// In production on Vercel, the API is served from the same domain as the
+// frontend (via the /api serverless functions), so an empty base URL
+// correctly resolves to a same-origin relative path.
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE_URL ?? (import.meta.env.DEV ? "http://localhost:5000" : "");
 
 export interface ApiSuccessResponse {
   success: true;

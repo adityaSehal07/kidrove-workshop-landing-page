@@ -1,0 +1,9 @@
+{
+  "name": "kidrove-workshop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI & Robotics Summer Workshop landing page — Vercel monorepo root for serverless API functions.",
+  "dependencies": {
+    "mongoose": "^9.7.1"
+  }
+}

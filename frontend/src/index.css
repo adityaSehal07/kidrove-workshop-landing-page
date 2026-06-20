@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  /* Kidrove logo-derived palette — bright, multicolor, kid-friendly */
+  --color-kid-red: #EF4444;
+  --color-kid-orange: #F97316;
+  --color-kid-yellow: #FACC15;
+  --color-kid-green: #22C55E;
+  --color-kid-blue: #3B82F6;
+  --color-kid-blue-dark: #2563EB;
+  --color-kid-purple: #7C3AED;
+  --color-kid-pink: #EC4899;
+
+  --color-primary: #3B82F6;
+  --color-primary-dark: #2563EB;
+  --color-primary-light: #DBEAFE;
+  --color-secondary: #F97316;
+  --color-secondary-light: #FFF7ED;
+  --color-success: #22C55E;
+  --color-success-light: #F0FDF4;
+  --color-danger: #EF4444;
+  --color-danger-light: #FEF2F2;
+  --color-sunny: #FACC15;
+  --color-sunny-light: #FEFCE8;
+  --color-grape: #7C3AED;
+  --color-grape-light: #F5F3FF;
+  --color-bubblegum: #EC4899;
+  --color-bubblegum-light: #FDF2F8;
+
+  --color-cream: #FFFBF0;
+  --color-gray-50: #F9FAFB;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #E5E7EB;
+  --color-gray-300: #D1D5DB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-500: #6B7280;
+  --color-gray-600: #4B5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1F2937;
+  --color-gray-900: #111827;
+
+  /* Fonts */
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Baloo 2", "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-gray-800);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--color-kid-blue);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  /* Soft polka-dot backdrop for a playful texture, used sparingly */
+  .dot-backdrop {
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 2px, transparent 2px);
+    background-size: 28px 28px;
+  }
+
+  .wiggle-on-hover:hover {
+    animation: wiggle 0.5s ease-in-out;
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-4deg); }
+    75% { transform: rotate(4deg); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+  .float-slower {
+    animation: float 8s ease-in-out infinite;
+    animation-delay: 1s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
